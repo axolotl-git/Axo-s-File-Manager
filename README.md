@@ -1,5 +1,5 @@
-# Axo-s-File-Manager
-a file manager with a comand line interface
+# Axo's File Manager
+a file manager with a comand line interface for microsoft windows
 
 
 ## goals:
