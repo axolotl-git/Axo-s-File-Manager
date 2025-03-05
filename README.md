@@ -4,6 +4,7 @@ a file manager with a comand line interface for microsoft windows
 
 ## goals:
 ☑️ = Done
+
 ➖ = work in progress
 - add a feature search file and directory : ➖
 - add translation to varius languages : ➖
@@ -18,7 +19,9 @@ it will appear like this:
 **X.Y.Z-**
 
 -**X** is for **Major** update 
+
 -**Y** is for **Minor** update
+
 -**Z** is for **Patch** update
 
 What is the criterion for choosing what type of update?
