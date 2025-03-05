@@ -17,9 +17,9 @@ how the software versioning work?
 it will appear like this:
 **X.Y.Z-**
 
-**X** is for **Major** update 
-**Y** is for **Minor** update
-**Z** is for **Patch** update
+-**X** is for **Major** update 
+-**Y** is for **Minor** update
+-**Z** is for **Patch** update
 
 What is the criterion for choosing what type of update?
 
