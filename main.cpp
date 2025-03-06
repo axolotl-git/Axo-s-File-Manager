@@ -27,6 +27,8 @@ int main() {
     std::string pathAndFile;
     std::string textFile;
     std::string overwrite;
+    int pathChoiche;
+    std::string path;
 
     // to get the current path
     fs::path currentPath = fs::current_path();
@@ -38,6 +40,7 @@ int main() {
             case 1: {
                 std::cout << "Enter the name of the file below, make sure to include the file extension: ";
                 std::cin >> fileName;
+                std::fflush;
                 std::ofstream MyFile(fileName);
                 MyFile.close();
                 std::cout << fileName << " created in " << currentPath << std::endl;
@@ -46,6 +49,7 @@ int main() {
             case 2: {
                 std::cout << "Enter the name of the file to delete below, make sure to include the file extension: ";
                 std::cin >> fileName;
+                std::fflush;
                 fs::remove((fileName).c_str());
                 std::cout << fileName << " deleted in " << currentPath << std::endl;
                 break;
@@ -53,6 +57,7 @@ int main() {
             case 3: {
                 std::cout << "Enter the name of the file below, make sure to include the file extension: ";
                 std::cin >> fileName;
+                std::fflush;
                 std::ofstream MyFile(fileName);
                 std::cout << "Please write in the file below:\n";
                 std::cin.ignore();
@@ -64,6 +69,7 @@ int main() {
             case 4: {
                 std::cout << "Enter the name of the file below, make sure to include the file extension: ";
                 std::cin >> fileName;
+                std::fflush;
                 std::ifstream MyFile(fileName);
                 while (std::getline(MyFile, textFile)) {
                     std::cout << textFile << std::endl;
@@ -72,6 +78,20 @@ int main() {
                 break;
             }
             case 5: {
+                std::cout << "do you want to see the list files in the current path?\n[1]Yes\n[2]No\n";
+                std::cin >> pathChoiche;
+                std::fflush;
+                if(pathChoiche == 2)
+                {
+                    std::cout << "insert the your custom path: ";
+                    std::cin >> path;
+                    std::cout << "\nHere is a list of files in the current directory:\n";
+                    for (const auto &entry : fs::directory_iterator(path)) {
+                        std::cout << entry.path() << std::endl;
+                    }
+                break;
+                }
+
                 std::cout << "Here is a list of files in the current directory:\n";
                 for (const auto &entry : fs::directory_iterator(currentPath)) {
                     std::cout << entry.path() << std::endl;
@@ -79,6 +99,18 @@ int main() {
                 break;
             }
             case 6: {
+                std::cout << "do you want to search files in the current path?\n[1]Yes\n[2]No\n";
+                std::cin >> pathChoiche;
+                std::fflush;
+                if(pathChoiche == 2)
+                {
+                    std::cout << "insert the path where you want to search: ";
+                    std::cin >> path;
+                    std::cout << "Enter the name of the file to search for (include extension): ";
+                    std::cin >> fileName;
+                    searchFile(path, fileName);
+                break;
+                }
                 std::cout << "Enter the name of the file to search for (include extension): ";
                 std::cin >> fileName;
                 searchFile(currentPath, fileName);
